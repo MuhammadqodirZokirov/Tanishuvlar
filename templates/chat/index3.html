@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ob-Xavo ma'lumoti</title>
+    <!-- local style sheet -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- box icon  -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="wrapper">
+        <header><i class="bx bx-left-arrow-alt"></i>Ob-xavo Dasturi</header>
+        <section class="input-part">
+            <p class="info-txt"></p> <!----xatoliklar uchun eslatma-->
+            <input type="text" placeholder="shahar nomini kiriting" required>
+            <div class="separator"></div>
+            <button>Qurilmaning Joylashuvini Aniqlang</button>
+        </section>
+        <section class="weather-part">
+            <img src="#" alt="weather icon">
+            <div class="temp">
+                <span class="numb">_</span>
+                <span class="deg">°</span>
+            </div>
+            <div class="weather">_</div>
+            <div class="location">
+                <i class="bx bx-map"></i>
+                <span>_,_</span>
+            </div>
+            <div class="bottom-details">
+                <div class="column feels">
+                    <i class="bx bxs-thermometer"></i>
+                    <div class="details">
+                        <div class="temp">
+                            <span class="numb-2">16</span>
+                            <span class="deg">°</span>C
+                        </div>
+                        <p>Feels like</p>
+                    </div>
+                </div>
+                <div class="column humidity">
+                    <i class="bx bxs-droplet-half"></i>
+                    <div class="details">
+                        <span class="numb">83%</span>
+                         <p>Namlik</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="{% static 'app.js' %}"></script>
+</body>
+</html>

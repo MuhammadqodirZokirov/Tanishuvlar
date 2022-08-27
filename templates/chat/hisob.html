@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hisob to`ldirishdagi yordam</title>
+    <link rel="stylesheet" href="{% static 'style1.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <section class="container-fluid bigContainer">
+        <!-- basic background -->
+        <div class="bg-imgdiv">
+
+
+           {% if usr.bg_img %}
+        <img src="/media/{{ usr.bg_img }}" class="bg-img" alt="">
+        {% else %}
+        <img src="https://thumbs.dreamstime.com/b/gruner-see-crystal-clear-water-austria-austrian-alps-50377865.jpg"
+             class="bg-img" alt="">
+        {% endif %}
+        </div>
+        <!-- basic background -->
+
+        <div class="container-fluid py-5">
+            <div class="content container">
+
+                <div class="blogs text-white">
+                    <div class="borderb blogs_item text-center">
+                        <h1>
+                           Hisob to`ldirishdagi yordam
+                        </h1>
+                    </div>
+                    <div class="elon_items">
+                        <p>O'z hisobingizni <b>UZS</b> bilan to'ldirmoqchimisiz? Marhamat..!</p>
+                        <p><b>UZS</b> - saytimizni pul birligi hisoblanib barcha hizmatlarda (sovg'a jo'natish, reyting
+                            ko'tarish, belgi biriktirish, reyting sotib olish, Profil bezash, Profil yopish)
+                            foydalanishingiz mumkin.</p>
+                        <div>
+                            <p class="text-primary">
+                                O'zbekiston uchun
+                            </p>
+                            <p>
+                                1 UZS = 1 SO'M
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-primary">
+                                Rassiya uchun
+                            </p>
+                            <p>
+                                1 rubl = 50 UZS
+                            </p>
+                        </div>
+                        <p>Minimal hisob to'ldirish 2000 UZS</p>
+                        <p><b>O`zbekiston uchun</b>: Admin ga murojat qiling ular sizga kerakli telefon raqamini
+                            beradilar
+                            siz u raqamga paynet qilasiz va bu haqda habar berasiz so'ngra so'ralgan UZS sizga
+                            o'tkaziladi.</p>
+                        <p><b>Rassiya uchun</b>: Active va ID 2 ga murojat qiling ular sizga kerakli telefon
+                            raqamini
+                            beradilar siz u raqamga paynet qilasiz va bu haqda habar berasiz so'ngra so'ralgan UZS
+                            sizga o'tkaziladi.</p>
+                        <p><b>Diqqat</b>: Bu pullar saytimiz rivoji va kelajagi uchun ishlatiladi.</p>
+                        <p>Hozir sizda: {{usr.pul}} UZS. mavjud</p>
+                    </div>
+
+                </div>
+                <button class="btn btn-primary"><a href="{% url 'asosiy' %}" class="text-white"><i
+                            class="fa-solid fa-house"></i></i></a></button>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

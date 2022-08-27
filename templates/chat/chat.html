@@ -1,0 +1,85 @@
+{% extends 'chat/index.html' %}
+{% block body %}
+<nav class="blue lighten-3">
+    <div class="nav-wrapper container">
+     <div class="simple align-items-center">
+        <div class="users_menyu">
+            <i class="fa-solid fa-bars animate"></i>
+        </div>
+        <a href="{% url 'asosiy' %}" class="brand-logo">Tanishuvlar</a>
+        <ul id="nav-mobile" class="right">
+            <li><a href="{% url 'asosiy' %}">{{ request.user.username }}</a></li>
+            <li><a href="{% url 'logout' %}"><i class="material-icons">power_settings_new</i></a></li>
+        </ul>
+     </div>
+    </div>
+</nav>
+
+<section class="container-fluid p-0 bigContainer h-100">
+        <div class="d-flex   container-fluid p-0">
+            <div class="left_content border">
+
+                <div id="users" class="users border-top ">
+
+                </div>
+            </div>
+            <div class="right_content border">
+                <div class="user_friend">
+                    <div id="board" class="user_message">
+                        {% block messages %}
+
+                        {% endblock %}
+                    </div>
+                    <div class="user_bottom">
+                        <form id="chat-box" class="form-group d-flex  messages gap-3 {% block hide %}hide{% endblock %}" method="post">
+                            {% csrf_token %}
+                            <input type="text" id="id_message">
+                            <button class="btn btn-primary">Send</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</section>
+
+{% load static %}
+<script>
+        // menyu bar click event
+        let bar = document.querySelector('.users_menyu')
+        let l_content = document.querySelector('.left_content')
+        bar.addEventListener('click', ()=>{
+            // console.log('success');
+            l_content.classList.toggle('left_active')
+        })
+        
+        // For receiving
+        sender_id = "{{ receiver.id }}";
+        receiver_id = "{{ request.user.id }}";
+
+        //For sending
+        $(function () {
+            scrolltoend();
+            $('#chat-box').on('submit', function (event) {
+                event.preventDefault();
+                var message = $('#id_message');
+                send('{{ request.user.username }}', '{{ receiver.username }}', message.val());
+                message.val('');
+            })
+
+            setInterval(() => {
+                getUsers({{ request.user.id }}, doc => {
+                    let list = ''
+                    doc.map(userItem => {
+                        list += userItem
+                    })
+                    $('#users').html(list)
+                });
+            }, 1000)
+        })        
+
+        
+
+</script>
+{% endblock %}

@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+/* Basic.css */
+.bigContainer {
+    width: 100%;
+    height: auto;
+    /* background: url("https://c0.wallpaperflare.com/preview/651/626/505/lake-mirroring-mountain-mountains.jpg"); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    --bs-gutter-x: 0 !important;
+    /* border: 3px solid red; */
+}
+
+body {
+    /* width: 100%; */
+    /* min-height: 100vh; */
+    --bgColor: #fff;
+    --fontcolor: #fff;
+    --shadow: grey;
+    --hover: rgb(247, 247, 247);
+    position: relative;
+}
+
+.title {
+    background: rgba(255, 255, 255, 0.3);
+    display: block;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    position: relative;
+    /* top: 50px; */
+    z-index: 5;
+    border-top: 1px solid rgba(255, 255, 255, .5);
+    border-left: 1px solid rgba(255, 255, 255, .5);
+}
+
+.bg-imgdiv {
+    position: absolute;
+    /* border: 2px solid red; */
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-position: center;
+    background-size: cover;
+    z-index: 1;
+}
+
+
+.bg-imgdiv .bg-img {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+.darkd {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background: rgba(0, 0, 0, .6);
+    z-index: 2;
+    transition: all .5s linear;
+  clip-path: circle(0% at 87% 13%);
+
+}
+.darkd_activ{
+   clip-path: circle(167.6% at 5% 7%);
+
+}
+.toggle {
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+}
+
+.toggle i {
+    padding-right: 5px;
+    color: var(--fontcolor);
+    font-size: 25px;
+}
+
+
+.img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    /* border: 1px solid #fff; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+}
+
+.borderb {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.blogs a {
+    text-decoration: none;
+    width: 100%;
+    color: #fff;
+    display: block;
+    /* border: 1px solid red; */
+    padding: 10px 0;
+}
+
+.blogs a:hover {
+    color: #fff;
+}
+
+/* Basic.css */
+
+/* Message.css */
+.message_img {
+    width: 80px;
+    border-radius: 10px;
+}
+
+.nav_activ {
+    /* width: 400px; */
+    /* display: block; */
+    transform: translate(0);
+    z-index: 100;
+}
+a{
+    text-decoration: none;
+    color: var(--fontcolor) !important;
+}
+.discuss{
+    list-style: none;
+    display: flex;
+}
+.discuss li{
+    margin: 0 10px;
+    
+}
+.circle_img {
+    width: 80px;
+    /* height: 60px; */
+    border-radius: 50%;
+    /* clip-path: circle(40.4% at 50% 50%); */
+}
+.dNone{
+    display: none;
+    opacity: 0;
+}
+input ,select{
+    color: #fff !important;
+}
+::placeholder{
+    color: #FFF !important;
+}

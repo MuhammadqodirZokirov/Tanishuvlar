@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('first_name', models.CharField(blank=True, max_length=100)),
                 ('last_name', models.CharField(blank=True, max_length=100)),
                 ('age', models.CharField(blank=True, max_length=100)),
-                ('profile_img', models.ImageField(blank=True, upload_to='profiles/')),
+                ('profile_img', models.ImageField(default='static/user_icon.png', upload_to='profiles/')),
                 ('bg_img', models.ImageField(blank=True, upload_to='bg_img/')),
                 ('reyting', models.IntegerField(blank=True, default=0)),
                 ('pul', models.IntegerField(blank=True, default=0)),

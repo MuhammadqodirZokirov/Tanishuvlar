@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
           integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="{% static '/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
 </head>
 
 <body>
@@ -20,29 +21,35 @@
     <div class="modal-dialog">
         <div class="modal-content modal_content">
             <div class="modal-header gap-3">
+                <p><span>  ID:</span> <span>{{usr.id}}</span></p>
                 {% if usr.profile_img %}
-                <img class="img m-auto" src="/media/{{ usr.profile_img }}" alt="{{usr.first_name}}'s image">
+                <a href="{% url 'personalChange' %}" ><img class="img m-auto" src="/media/{{ usr.profile_img }}" alt="{{usr.first_name}}'s image"></a>
                 {% else %}
                 <img class="img m-auto" src="{% static 'user_icon.png' %}" alt="{{usr.first_name}}'s image">
                 {% endif %}
                 <h6>{{usr.first_name}} {{usr.last_name}}</h6>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-<!--            <div class="modal-body">-->
-<!--                <form method="post" enctype="multipart/form-data">-->
-<!--                    {% csrf_token %}-->
-<!--                     <div class="form-group">-->
-<!--                    <label class="form-label">Profile Img</label>-->
-<!--                    <input type="file" class="form-control" name="pg_img">-->
-<!--                </div>-->
-<!--                    <div class="form-group">-->
-<!--                        <label  class="mt-2">Background img</label>-->
-<!--                        <input class="form-control" name="bg_img" type="file" placeholder="Background Img"></div>-->
-<!--                    <div class="form-group">-->
-<!--                        <input type="submit" class="btn btn-primary btn-lg mt-2" value="Save">-->
-<!--                    </div>-->
-<!--                </form>-->
-<!--            </div>-->
+            <div class="modal-body">
+                <div class="lider d-flex align-items-center gap-4 borderb blogs_item">
+                    <p><span>  Username:</span> <span>{{user.username}}</span></p>
+                </div>
+                <div class="d-flex align-items-center gap-4 borderb blogs_item">
+                    <p><span>   Status:</span> <span>{{usr.about}}</span></p>
+                </div>
+                <div class="d-flex align-items-center gap-4 borderb blogs_item">
+                    <p><span>  Yoshi:</span> <span>{{usr.age}}</span></p>
+                </div>
+                <div class="d-flex align-items-center gap-4 borderb blogs_item">
+                    <p><span>  Shaxar:</span> <span>{{usr.city}}</span></p>
+                </div>
+                <div class="d-flex align-items-center gap-4 borderb blogs_item">
+                    <p><span>  Ro'yxatdan o'tgan:</span> <span>{{usr.created_at}}</span></p>
+                </div>
+                <div class="d-flex align-items-center gap-4 borderb blogs_item">
+                    <p> <a href="{% url 'personalChange' %}" class="text-black">Edit profile</a></p>
+                </div>
+            </div>
             <div class="modal-footer">
 
             </div>
@@ -101,9 +108,9 @@
                     </div>
                 </div>
             </div>
-<!--            {% if msg %}-->
-<!--            <div class="alert {{error}}">{{msg}}</div>-->
-<!--            {% endif %}-->
+            <!--            {% if msg %}-->
+            <!--            <div class="alert {{error}}">{{msg}}</div>-->
+            <!--            {% endif %}-->
             <div class="blogs text-white">
                 <div class="lider d-flex align-items-center gap-4 borderb blogs_item">
                     <div class="icon">
@@ -145,7 +152,7 @@
                 </div>
                 <div class="d-flex align-items-center gap-4 borderb blogs_item">
                     <div class="icon">
-                      <i class="fa-brands fa-youtube"></i>
+                        <i class="fa-brands fa-youtube"></i>
                     </div>
                     <a href="{% url 'youtubedownload' %}">Youtube video Downloader</a>
                 </div>

@@ -7,11 +7,11 @@ const text_box = '<div class="d-flex justify-content-end">'+
 
 let userState = ''
 
-const userDiv = (senderId, receiverId, name, online) =>
+const userDiv = (senderId, receiverId, name, online, image) =>
     (`<a href="/chat/${senderId}/${receiverId}" id="user${receiverId}" class="collection-item">
                     <div class="d-flex justify-content-between py-1">
                         <div >
-                        <img src="https://frontend-1.adjust.com/new-assets/images/site-images/interface/user.svg" class="s2">
+                        <img src="/static/user_icon.png" alt="userimage" style="width:70px; height:70px; borderRadius : 5px">
                         <span class="title mx-2" style="font-weight: bolder">${name}</span>
                         </div>
                         <span style="color: ${online ? 'green' : 'red'};">${online ? 'online' : 'offline'}</span>

@@ -9,11 +9,11 @@ from django.utils import timezone
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone = models.IntegerField(default='998991112233', blank=True)
+    phone = models.IntegerField(default='991112233', blank=True)
     first_name = models.CharField(max_length=100, blank=True)
     last_name = models.CharField(max_length=100, blank=True)
     age = models.CharField(max_length=100, blank=True)
-    profile_img = models.ImageField(upload_to='profiles/', blank=True)
+    profile_img = models.ImageField(upload_to='profiles/', default='static/user_icon.png')
     bg_img = models.ImageField(upload_to='bg_img/', blank=True)
     reyting = models.IntegerField(default=0, blank=True)
     pul = models.IntegerField(default=0, blank=True)

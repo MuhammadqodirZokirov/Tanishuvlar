@@ -168,6 +168,12 @@ def extra(request):
 def kurs(request):
     import requests
     context = {}
+    usr = UserProfile.objects.filter(user__id=request.user.id)
+    if len(usr) > 0:
+        data1 = UserProfile.objects.get(user__id=request.user.id)
+        context = {
+            'usr': data1,
+        }
     url = 'https://v6.exchangerate-api.com/v6/1cca2aaaa843438ba85f26c7/pair/EUR/UZS'
     response = requests.get(url)
     EURO = response.json()
@@ -185,17 +191,6 @@ def kurs(request):
         'USD': USD['conversion_rate'],
         'RUB': RUB['conversion_rate'],
     }
-    usr = UserProfile.objects.filter(user__id=request.user.id)
-    if len(usr) > 0:
-        data1 = UserProfile.objects.get(user__id=request.user.id)
-        context = {
-            'usr': data1, }
-    usr = UserProfile.objects.filter(user__id=request.user.id)
-    if len(usr) > 0:
-        data1 = UserProfile.objects.get(user__id=request.user.id)
-        context = {
-            'usr': data1,
-        }
     return render(request, 'chat/kursv.html', context)
 
 
@@ -270,9 +265,6 @@ def personalChange(request):
         data = UserProfile.objects.get(user__id=request.user.id)
         context['data'] = data
     if request.method == 'POST':
-        print(request.POST)
-        # pg_img = request.POST['pg_img']
-        # bg_img = request.POST['bg_img']
         gender = request.POST['gender']
         first = request.POST['firstname']
         last = request.POST['lastname']
@@ -287,9 +279,6 @@ def personalChange(request):
         data.city = city
         data.phone = phone
         data.about = about
-        # data.profile_img = f'profiles/{pg_img}'
-        # data.bg_img = f'bg_img/{bg_img}'
-        print(request.FILES)
         if 'pg_img' in request.FILES:
             data.profile_img = request.FILES['pg_img']
             if 'bg_img' in request.FILES:
@@ -394,5 +383,4 @@ def tiktokdownload(request):
         result = response.json()
         natija = {"video": result['video'][0], "music": result['music'][0]}
         context['video'] = natija['video']
-        context['music'] = natija['music']
     return render(request, 'chat/tiktokdownload.html', context)

@@ -1,52 +1,69 @@
+
 # Tanishuvlar chat
 
-(_One of my just-for-fun projects_)
+(_Mening qiziqarli loyihalarimdan biri_)
 
-## Installation
+## O'rnatish
 
-This app uses memcached to store Users online status, So you will need to install it.
+Ushbu ilova foydalanuvchilarning onlayn holatini saqlash uchun memcached-dan foydalanadi, shuning uchun uni
+o'rnatishingiz kerak bo'ladi.
 
 On Ubuntu:
+
 ```
 sudo apt install memcached
 ```
 
 Install virtualenv
+
 ```
 pip install virtualenv
 ```
-On the project directory,
 
-Create virtual environment
+Loyiha katalogida,
+
+Virtual environment yaratish
+
 ```
 virtualenv venv
 ```
+
 Activate
+
 ```
 source venv/bin/activate
 ```
 
 Install requirements
+
 ```
 pip install -r requirements.txt
 ```
 
-Do Database migrations
-```
-./manage.py makemigrations
-./manage.py makemigrations chat
-./manage.py migrate
-```
-
-Try creating a superuser for user management
-```
-./manage.py createsuperuser
-```
-
-Give necessary inputs
-
-Run development server
+Ma'lumotlar bazasini ko'chirishni amalga oshiring
 
 ```
-./manage.py runserver
+python manage.py makemigrations
+python manage.py makemigrations chat
+python manage.py migrate
 ```
+
+Foydalanuvchilarni boshqarish uchun superuser yaratishga harakat qiling
+
+```
+python manage.py createsuperuser
+```
+
+Kerakli ma'lumotlarni bering
+
+Rivojlanish serverini ishga tushiring
+
+```
+python manage.py runserver
+```
+
+## SAYTDAN LAVHALAR
+<img src="img.png" class="rounded float-left" alt="...">
+<img src="img_1.png" class="rounded float-right" alt="...">
+<img src="img_2.png" class="rounded float-right" alt="...">
+<img src="img_3.png" class="rounded float-right" alt="...">
